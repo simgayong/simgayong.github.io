@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>안농 심가옹!~</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+                
+        html, body {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* background: url(../main/Background.jpg) no-repeat;
+    background-size: cover;
+    background-position: center center; */
+        .prev, .next{
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            padding: 16px;
+            color: rgb(248, 248, 248);
+            font-size: 2rem;
+            transition: 0.6s ease;
+            border-radius: 5px;
+        }
+        .next{
+            right:0;
+        }
+        .prev:hover, .next:hover{
+            background-color: rgba(190,190,190);
+        }
+        .slidePage{
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .page1{
+            background: url(./2.jpg) no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .page2{
+            background: url(./1.jpg) no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+
+        .page3{
+            background: url(./3.jpg) no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        
+        .page4{
+            background: url(./4.jpg) no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        .page5{
+            background: url(./5.jpg) no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        .page6{
+            background: url(./6.jpg) no-repeat;
+            background-size: cover;
+            background-position: center center;
+        }
+        .slidePage .text{
+            padding: 0;
+            margin: 0;
+            color: white;
+            text-shadow: 3px 3px 3px black;
+            font-size: 3.5vw;
+            text-align: center;
+            top: 45%;
+            transform: translateY(-45%);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+        }
+
+        .page1 .text{
+            padding: 0;
+            margin: 0;
+            color: white;
+            text-shadow: 3px 3px 3px black;
+            font-size: 5vw;
+            text-align: center;
+            top: 40%;
+            transform: translateY(-40%);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+        }
+
+        .page5 .text{
+            padding: 0;
+            margin: 0;
+            color: white;
+            text-shadow: 3px 3px 3px black;
+            font-size: 3.5vw;
+            text-align: center;
+            top: 37%;
+            transform: translateY(-37%);
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="slidePage page1">
+        <div class="text">
+            <p style="padding: 0; margin: 0;">♥안눙 심가용♥</p>
+            이건 나만의 특별한 러브레터야 키키
+        </div>
+    </div>
+    
+    <div class="slidePage page2">
+        <div class="text">
+            고냥 편지를 쓰는건 심심해서 <br>요롷게 준비해봐써 히히 마음에 들지는 모르겠네!
+        </div>
+    </div>
+    
+    <div class="slidePage page3">
+        <div class="text">
+            요즘 바쁘다는 핑계로 많이 못챙겨주고<br>
+            이렇게 기분 좋은 이벤트도 못해줘서 미안해!<br>
+            가영이가 요즘 부쩍 외로워해서 마음이아프구나<br>
+        </div>
+    </div>
+
+    <div class="slidePage page4">
+        <div class="text">
+            그래도 이번 화이트데이에 내가 준비한거 보고<br>
+            기분이 좀 풀렸으면 좋겠어! 고래야 나도 행복하거든<br>
+
+        </div>
+    </div>
+
+    <div class="slidePage page5">
+        <div class="text">
+            216일의 시간이 지나며<br> 우리의 시간엔 행복한 추억도 있을것이고,<br>
+            서로 기분이 상했던 적들도 많았을거야<br>
+            찰나의 감정에 얽매이지 말고 우리 서로<br>
+            사랑하며 아껴주고 최선을 다하자<br>
+            나부터 먼저 노력해볼게
+        </div>
+    </div>
+
+    <div class="slidePage page6">
+        <div class="text">
+            연애도 서툴고 할줄아는것도 없고 가진것도 없어서<br>
+            이렇게나마 준비해봤는데 마음에 들어줬으면 좋겠어!<br>
+            <h3 style="margin: 0; padding: 0; color: pink;">♥사랑해♥</h3>
+        </div>
+    </div>
+    <a class="prev" onclick="button_click(-1);">&#10094</a> 
+    <a class="next" onclick="button_click(1);">&#10095</a> 
+
+<script>
+        let currSlide =1;
+        showSlide(currSlide);
+        function button_click(num){
+            showSlide((currSlide += num));
+        };
+        function showSlide(num){
+            const slides = document.querySelectorAll(".slidePage");
+            if(num>slides.length){
+                currSlide =1;
+            }
+            if(num<1){
+                currSlide = slides.length;
+            }
+            for(let i=0; i<slides.length; i++){
+                slides[i].style.display="none";
+            }slides[currSlide -1].style.display="block";
+        }
+</script>
+</body>
+</html>
